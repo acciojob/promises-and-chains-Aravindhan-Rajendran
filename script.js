@@ -13,8 +13,8 @@ document.getElementById('btn').addEventListener('click', function(e) {
   });
 
   agecheck.then(function() {
-    setTimeout(function() { alert("Welcome, " + namevalue + ". You can vote") }, 4000);
+    setTimeout(function() { alert("Welcome, " + namevalue + ". You can vote.") }, 4000);
   }).catch(function(){
-    alert("Oh sorry " + namevalue + ". You aren't old enough")
+    alert("Oh sorry " + namevalue+ "." + "You aren't old enough.")
   });
 });
