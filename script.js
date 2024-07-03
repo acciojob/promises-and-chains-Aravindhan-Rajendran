@@ -5,7 +5,9 @@ document.getElementById('btn').addEventListener('click', function(e) {
   let nameValue = document.getElementById("name").value;
 
   let ageCheck = new Promise(function(resolve, reject) {
-    if (ageValue >= 18) {
+    if (!ageValue || !nameValue) {
+      reject('Please enter valid details');
+    } else if (ageValue >= 18) {
       resolve(nameValue);
     } else {
       reject(nameValue);
@@ -16,7 +18,11 @@ document.getElementById('btn').addEventListener('click', function(e) {
     setTimeout(function() {
       alert(`Welcome, ${name}. You can vote.`);
     }, 4000);
-  }).catch(function(name) {
-    alert(`Oh sorry ${name}. You aren't old enough.`);
+  }).catch(function(message) {
+    if (message === 'Please enter valid details') {
+      alert(message);
+    } else {
+      alert(`Oh sorry ${message}. You aren't old enough.`);
+    }
   });
 });
