@@ -1,20 +1,22 @@
 document.getElementById('btn').addEventListener('click', function(e) {
   e.preventDefault(); // Prevent the form from being submitted normally
-  
-  let agevalue = Number(document.getElementById("age").value);
-  let namevalue = document.getElementById("name").value;
 
-  let agecheck = new Promise(function(resolve, reject) {
-    if(agevalue >= 18){
-      resolve();
+  let ageValue = Number(document.getElementById("age").value);
+  let nameValue = document.getElementById("name").value;
+
+  let ageCheck = new Promise(function(resolve, reject) {
+    if (ageValue >= 18) {
+      resolve(nameValue);
     } else {
-      reject();
+      reject(nameValue);
     }
   });
 
-  agecheck.then(function() {
-    setTimeout(function() { alert(`Welcome, ${nameValue}. You can vote.`); }, 4000);
-  }).catch(function(){
-     alert(`Oh sorry, ${nameValue}. You aren't old enough.`);
+  ageCheck.then(function(name) {
+    setTimeout(function() {
+      alert(`Welcome, ${name}. You can vote.`);
+    }, 4000);
+  }).catch(function(name) {
+    alert(`Oh sorry, ${name}. You aren't old enough.`);
   });
 });
