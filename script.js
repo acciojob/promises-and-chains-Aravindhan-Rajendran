@@ -17,6 +17,6 @@ document.getElementById('btn').addEventListener('click', function(e) {
       alert(`Welcome, ${name}. You can vote.`);
     }, 4000);
   }).catch(function(name) {
-    alert(`Oh sorry, ${name}. You aren't old enough.`);
+    alert(`Oh sorry ${name}. You aren't old enough.`);
   });
 });
